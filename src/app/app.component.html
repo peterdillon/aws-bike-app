@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button 
+      mat-icon-button 
+      aria-label=""
+      [matMenuTriggerFor]="menu" 
+      #menuTrigger="matMenuTrigger" 
+      (click)="menuTrigger.openMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/home">
+        <mat-icon>home</mat-icon> Home
+      </a>
+      <a mat-menu-item routerLink="/view-product">
+        <mat-icon>edit_circle</mat-icon> View/Edit Products
+      </a>
+      <a mat-menu-item routerLink="/create-product">
+        <mat-icon>add_circle</mat-icon> Create Product
+      </a>
+    </mat-menu>
+    <span>Product Manager</span>
+    <!-- <span class="flexExpand"></span>
+    <span>Weather: {{ location }}, {{ region }} {{ temp }}* F</span> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+  <router-outlet></router-outlet>
+
+<div class="footer">
+  Demo app by Peter Dillon 2024. 
+</div>

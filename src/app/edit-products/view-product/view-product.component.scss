@@ -1,0 +1,62 @@
+
+h1 {
+    margin: 1rem 2rem;
+}
+p.desc {
+    &::first-letter {
+        text-transform: capitalize;
+    }
+    min-height: 4rem;
+}
+p.type, mat-card-subtitle {
+    text-transform: capitalize;
+    color: #777 !important;
+}
+.mat-mdc-card  {
+    background-color: #efefef;
+}
+mat-card-subtitle {
+    color:darkgrey
+}
+.mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+.mat-mdc-card-content {
+    margin-top: .75rem;
+}
+.card-wrapper {
+    padding-bottom: 4rem;
+    // scroll-padding-bottom: 2rem; <- new css prop not working?
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    @media (max-width: 850px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media (min-width: 1250px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1251px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1700px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.card-ct {
+    max-width: 400px;
+    display: flex;
+}
+.fill {
+    flex: 1;
+  }
+
+  .id-ct {
+    margin-left: .5rem;
+  }
+
+.card-header-image {
+    background-size: cover;
+}
+  

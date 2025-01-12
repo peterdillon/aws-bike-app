@@ -1,0 +1,24 @@
+
+<h1>Products</h1>
+<mat-grid-list cols="1" gutterSize="1rem">
+  <div class="card-wrapper">
+    <mat-card *ngFor="let bike of bikeCollectiondata" class="card-ct">
+        <mat-card-header>
+          <div [ngStyle]="{ backgroundImage: 'url('+ bike.logo +')'}" mat-card-avatar class="card-header-image"></div>
+          <mat-card-title>{{ bike.name }} </mat-card-title>
+          <mat-card-subtitle>{{ bike.type }} - {{ bike.price |  currency:'USD':'symbol':'1.0' }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ bike.image }}" alt="Product image">
+        <mat-card-content>
+          <p class="type">In stock: <b>{{ bike.quantity }}</b> &nbsp; &nbsp; Rating: {{ bike.rating }}</p>
+          <p class="desc">{{ bike.description }}</p>
+        </mat-card-content>
+        <mat-card-actions [align]="'end'">
+          <div class="id-ct">Product ID: {{ bike.id }}</div>
+          <div class="fill"></div>
+          <button mat-flat-button color="primary" (click)="editProduct(bike.id)">EDIT</button>
+          <button mat-flat-button color="warn" (click)="confirmDeleteDialog(bike.id)">DELETE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+</mat-grid-list> 

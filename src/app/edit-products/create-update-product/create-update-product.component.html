@@ -1,0 +1,46 @@
+<div class="formContainer">
+    <h1>{{ title }} Product</h1>
+    <form [formGroup]="createProductForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Rating</mat-label>
+            <input matInput formControlName="rating">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input matInput formControlName="quantity">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Type</mat-label>
+            <input matInput formControlName="type">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Image</mat-label>
+            <input matInput formControlName="image">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Logo</mat-label>
+            <input matInput formControlName="logo">
+        </mat-form-field>
+        <br>
+        <div>
+            <!-- *ngIf="newProduct" -->
+            <button *ngIf="newProduct" mat-flat-button class="right group" color="primary" (click)="saveNewProduct()" type="submit" [disabled]="createProductForm.invalid">Save New</button>
+            <button *ngIf="!newProduct" mat-flat-button class="right group" color="primary" (click)="update()" type="submit" [disabled]="createProductForm.invalid">Save Edited</button>
+            <button mat-flat-button class="left secondary" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+ 
