@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from '../shared/dialog.service';
-import { Firestore, getFirestore, doc,  DocumentData, QuerySnapshot, getDoc } from 'firebase/firestore';
+// import { Firestore, getFirestore, doc,  DocumentData, QuerySnapshot, getDoc } from 'firebase/firestore';
 // import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { Firestore, getFirestore, doc,  DocumentData, QuerySnapshot, getDoc } fr
 })
 export class CreateProductComponent implements OnInit {
 
-  db: Firestore;
+  // db: Firestore;
   createProductForm!: FormGroup;
   routeID: any;
   title = '';
@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit {
                private dialog: DialogService,
               //  private firebaseService: FirebaseService 
               ) { 
-                this.db = getFirestore();
+                // this.db = getFirestore();
               }
             
   ngOnInit(): void {
@@ -36,12 +36,12 @@ export class CreateProductComponent implements OnInit {
 
     this.title = 'Create New';
     this.initCreateProductForm();
-    if (this.route.snapshot.paramMap.get('id')) {
-      this.title = 'Edit';
-      this.newProduct = false;
-      this.routeID = this.route.snapshot.paramMap.get('id');
-      this.initEditProductForm();
-    }
+    // if (this.route.snapshot.paramMap.get('id')) {
+    //   this.title = 'Edit';
+    //   this.newProduct = false;
+    //   this.routeID = this.route.snapshot.paramMap.get('id');
+    //   this.initEditProductForm();
+    // }
   }
 
   async saveNewProduct() {
@@ -63,11 +63,12 @@ export class CreateProductComponent implements OnInit {
     // this.updateBikeCollection(snapshot);
   }
 
-  updateBikeCollection(snapshot: QuerySnapshot<DocumentData>) {
-    this.bikeCollectiondata = [];
-    snapshot.docs.forEach((Bike) => {
-      this.bikeCollectiondata.push({ ...Bike.data(), id: Bike.id });
-    })
+  // snapshot: QuerySnapshot<DocumentData>
+  updateBikeCollection() {
+    // this.bikeCollectiondata = [];
+    // snapshot.docs.forEach((Bike) => {
+    //   this.bikeCollectiondata.push({ ...Bike.data(), id: Bike.id });
+    // })
   }
 
   async delete(docId: string) {
@@ -93,23 +94,23 @@ export class CreateProductComponent implements OnInit {
   }
 
   async initEditProductForm() {
-    const docRef = doc(this.db, 'bikes', this.routeID);
-    const docSnap = await getDoc(docRef);
-    // await getDoc(docRef);
-    if (docSnap.exists()) {
-        this.createProductForm = this.fb.group({
-          name: [docSnap.data()['name'], Validators.required],
-          description: [docSnap.data()['description'], Validators.required],
-          rating: [docSnap.data()['rating'], Validators.required],
-          price: [docSnap.data()['price'], Validators.required],
-          quantity: [docSnap.data()['quantity'], Validators.required],
-          type: [docSnap.data()['type'], Validators.required],
-          image: [docSnap.data()['image'], Validators.required],
-          logo: [docSnap.data()['logo'], Validators.required]
-        });
-      } else {
-        console.log("No such document!");
-      }
+    // const docRef = doc(this.db, 'bikes', this.routeID);
+    // const docSnap = await getDoc(docRef);
+    // // await getDoc(docRef);
+    // if (docSnap.exists()) {
+    //     this.createProductForm = this.fb.group({
+    //       name: [docSnap.data()['name'], Validators.required],
+    //       description: [docSnap.data()['description'], Validators.required],
+    //       rating: [docSnap.data()['rating'], Validators.required],
+    //       price: [docSnap.data()['price'], Validators.required],
+    //       quantity: [docSnap.data()['quantity'], Validators.required],
+    //       type: [docSnap.data()['type'], Validators.required],
+    //       image: [docSnap.data()['image'], Validators.required],
+    //       logo: [docSnap.data()['logo'], Validators.required]
+    //     });
+    //   } else {
+    //     console.log("No such document!");
+    //   }
   }
  
   initCreateProductForm(): void {
