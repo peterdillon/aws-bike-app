@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
+.angular/cache
 
 # Firebase cache
 .firebase/
@@ -107,7 +108,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-.map
-
-.angular/cache
