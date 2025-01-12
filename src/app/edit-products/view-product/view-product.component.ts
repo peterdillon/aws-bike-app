@@ -4,7 +4,7 @@ import { BikesService } from '../shared/bikes.service';
 import { Router } from '@angular/router';
 import { DialogService } from '../shared/dialog.service';
 import { DocumentData, QuerySnapshot, orderBy } from '@firebase/firestore';
-import { FirebaseService } from '../shared/firebase.service';
+// import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
   selector: 'app-view-product',
@@ -26,18 +26,19 @@ export class ViewProductComponent {
   constructor( private bikesService: BikesService,
                private router: Router,
                private dialog: DialogService,
-               private firebaseService: FirebaseService  ) { }
+              //  private firebaseService: FirebaseService 
+               ) { }
 
   ngOnInit(): void {
-    this.get();
-    this.firebaseService.obsr_UpdatedSnapshot.subscribe((snapshot) => {
-      this.updateBikeCollection(snapshot);
-    })
+    // this.get();
+    // this.firebaseService.obsr_UpdatedSnapshot.subscribe((snapshot) => {
+    //   this.updateBikeCollection(snapshot);
+    // })
   }
  
   async get() {
-    const snapshot = await this.firebaseService.getBikes();
-    this.updateBikeCollection(snapshot);
+    // const snapshot = await this.firebaseService.getBikes();
+    // this.updateBikeCollection(snapshot);
   }
 
   updateBikeCollection(snapshot: QuerySnapshot<DocumentData>) {
@@ -52,7 +53,7 @@ export class ViewProductComponent {
   }
 
   async delete(docId: string) {
-    await this.firebaseService.deleteBike(docId);
+    // await this.firebaseService.deleteBike(docId);
   }
 
   confirmDeleteDialog(id:string) {

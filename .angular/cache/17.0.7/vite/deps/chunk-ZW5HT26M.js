@@ -1,10 +1,10 @@
 import {
   BrowserModule,
   DomRendererFactory2
-} from "./chunk-G3UAX3O7.js";
+} from "./chunk-BOHUSLMD.js";
 import {
   DOCUMENT
-} from "./chunk-7AG54Y4B.js";
+} from "./chunk-OLXBLK6I.js";
 import {
   ANIMATION_MODULE_TYPE,
   ApplicationRef,
@@ -21,7 +21,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-S3ZHAECU.js";
+} from "./chunk-GZYC5BWH.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AUTO_STYLE = "*";
@@ -4643,4 +4643,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-EU6QKSWJ.js.map
+//# sourceMappingURL=chunk-ZW5HT26M.js.map

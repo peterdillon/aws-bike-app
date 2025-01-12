@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from '../shared/dialog.service';
 import { Firestore, getFirestore, doc,  DocumentData, QuerySnapshot, getDoc } from 'firebase/firestore';
-import { FirebaseService } from '../shared/firebase.service';
+// import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
   selector: 'app-create-update-product',
@@ -23,15 +23,16 @@ export class CreateProductComponent implements OnInit {
                private router: Router,
                private route: ActivatedRoute,
                private dialog: DialogService,
-               private firebaseService: FirebaseService ) { 
+              //  private firebaseService: FirebaseService 
+              ) { 
                 this.db = getFirestore();
               }
             
   ngOnInit(): void {
-    this.get();
-    this.firebaseService.obsr_UpdatedSnapshot.subscribe((snapshot) => {
-      this.updateBikeCollection(snapshot);
-    })
+    // this.get();
+    // this.firebaseService.obsr_UpdatedSnapshot.subscribe((snapshot) => {
+    //   this.updateBikeCollection(snapshot);
+    // })
 
     this.title = 'Create New';
     this.initCreateProductForm();
@@ -44,22 +45,22 @@ export class CreateProductComponent implements OnInit {
   }
 
   async saveNewProduct() {
-    await this.firebaseService.addBike(
-      this.createProductForm.get('name')?.value,
-      this.createProductForm.get('description')?.value,
-      this.createProductForm.get('rating')?.value,
-      this.createProductForm.get('price')?.value,
-      this.createProductForm.get('quantity')?.value,
-      this.createProductForm.get('type')?.value,
-      this.createProductForm.get('image')?.value,
-      this.createProductForm.get('logo')?.value
-      );
-      this.router.navigate(["/view-product"]);
+    // await this.firebaseService.addBike(
+    //   this.createProductForm.get('name')?.value,
+    //   this.createProductForm.get('description')?.value,
+    //   this.createProductForm.get('rating')?.value,
+    //   this.createProductForm.get('price')?.value,
+    //   this.createProductForm.get('quantity')?.value,
+    //   this.createProductForm.get('type')?.value,
+    //   this.createProductForm.get('image')?.value,
+    //   this.createProductForm.get('logo')?.value
+    //   );
+    //   this.router.navigate(["/view-product"]);
   }
 
   async get() {
-    const snapshot = await this.firebaseService.getBikes();
-    this.updateBikeCollection(snapshot);
+    // const snapshot = await this.firebaseService.getBikes();
+    // this.updateBikeCollection(snapshot);
   }
 
   updateBikeCollection(snapshot: QuerySnapshot<DocumentData>) {
@@ -70,21 +71,21 @@ export class CreateProductComponent implements OnInit {
   }
 
   async delete(docId: string) {
-    await this.firebaseService.deleteBike(docId);
+    // await this.firebaseService.deleteBike(docId);
   }
 
   async update() {
-    await this.firebaseService.updateBike(
-      this.routeID, 
-      this.createProductForm.get('name')?.value,
-      this.createProductForm.get('description')?.value,
-      this.createProductForm.get('rating')?.value,
-      this.createProductForm.get('price')?.value,
-      this.createProductForm.get('quantity')?.value,
-      this.createProductForm.get('type')?.value,
-      this.createProductForm.get('image')?.value,
-      this.createProductForm.get('logo')?.value );
-      this.router.navigate(["/view-product"])
+    // await this.firebaseService.updateBike(
+    //   this.routeID, 
+    //   this.createProductForm.get('name')?.value,
+    //   this.createProductForm.get('description')?.value,
+    //   this.createProductForm.get('rating')?.value,
+    //   this.createProductForm.get('price')?.value,
+    //   this.createProductForm.get('quantity')?.value,
+    //   this.createProductForm.get('type')?.value,
+    //   this.createProductForm.get('image')?.value,
+    //   this.createProductForm.get('logo')?.value );
+    //   this.router.navigate(["/view-product"])
   }
 
   cancel() { 
